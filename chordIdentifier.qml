@@ -30,7 +30,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Dialogs 1.0
 
 MuseScore {
-    menuPath: "Plugins.Chords.Chord Identifier (Specialized3_2)"
+    menuPath: "Plugins.Chords.Chord Identifier (Specialized3_3)"
     description: "Identify chords and put chord symbol on top."
     version: "2.5.778"
 
@@ -245,7 +245,7 @@ MuseScore {
                             
                             //... and associated notation:
         //var chord_str = ["", "m", "\u00B0", "MM7", "m7", "Mm7", "\u00B07"];
-        var chord_str = ["", "m", "dim", "sus4",  "7sus4", "Maj7", "m(Maj7)", "m7", "7", "dim7", "Maj7(#5)", "7(#5)", "(#5)", "m7(b5)", "7(b5)", "(add9)", "Maj9", "9", "m(add9)", "m9(Maj7)", "m9", "Maj7(#11)", "Maj9(#11)", "7(#11)", "9(#11)", "7(13)", "9(13)", "7(b9)","7(b13)", "7(b9/b13)", "11(b9/b13)", "7(#9)", "m7(11)", "m11", "x"];
+        var chord_str = ["", "m", "<sup>o</sup>", "<sup>sus4</sup>", "7<sup>sus4</sup>", "M<sup>7</sup>", "m<sup>M7</sup>", "m<sup>7</sup>", "7", "<sup>o7</sup>", "M7<sup>#5</sup>", "7<sup>#5</sup>", "<sup>#5</sup>", "m7<sup>b5</sup>", "7<sup>b5</sup>", "+<sup>9</sup>", "M<sup>9</sup>", "<sup>9</sup>", "m+<sup>9</sup>", "m9<sup>M7</sup>", "m<sup>9</sup>", "M7<sup>#11</sup>", "M9<sup>#11</sup>", "7<sup>#11</sup>", "9<sup>#11</sup>", "7<sup>13</sup>", "9<sup>13</sup>", "7<sup>b9</sup>" "7<sup>b13</sup>", "7<sup>b9/b13</sup>", "11<sup>b9/b13</sup>", "7<sup>#9</sup>", "m7<sup>11</sup>", "m11", "x"];
         /*var chord_type_reduced = [ [4],  //M
                                     [3],  //m
                                     [4,11],   //MM7
@@ -470,7 +470,7 @@ MuseScore {
         var aCount = 0;
         var annotation = segment.annotations[aCount];
         while (annotation) {
-            if (annotation.type == Element.HARMONY)
+            if (annotation.type == Element.STAFF_TEXT)
                 return annotation;
             annotation = segment.annotations[++aCount];     
         }
@@ -610,7 +610,7 @@ MuseScore {
                         //console.log("got harmony " + staffText + " with root: " + harmony.rootTpc + " bass: " + harmony.baseTpc);
                         harmony.text = chordName;
                     }else{ //chord symbol does not exist, create it
-                        harmony = newElement(Element.HARMONY);
+                        harmony = newElement(Element.STAFF_TEXT);
                         harmony.text = chordName;
                         //console.log("text type:  " + staffText.type);
                         cursor.add(harmony);
