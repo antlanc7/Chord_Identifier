@@ -1,4 +1,4 @@
-A fork of a plugin based on this repository
+A fork of a plugin based on this repository:
 https://github.com/rousselmanu/msc_plugins
 
-but adapted for MuseScore3
+adapted for MuseScore3, thanks to Ziya Mete Demircan
