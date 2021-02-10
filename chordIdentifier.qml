@@ -245,7 +245,7 @@ MuseScore {
                             
                             //... and associated notation:
         //var chord_str = ["", "m", "\u00B0", "MM7", "m7", "Mm7", "\u00B07"];
-        var chord_str = ["", "m", "<sup>o</sup>", "<sup>sus4</sup>", "7<sup>sus4</sup>", "M<sup>7</sup>", "m<sup>M7</sup>", "m<sup>7</sup>", "7", "<sup>o7</sup>", "M7<sup>#5</sup>", "7<sup>#5</sup>", "<sup>#5</sup>", "m7<sup>b5</sup>", "7<sup>b5</sup>", "+<sup>9</sup>", "M<sup>9</sup>", "<sup>9</sup>", "m+<sup>9</sup>", "m9<sup>M7</sup>", "m<sup>9</sup>", "M7<sup>#11</sup>", "M9<sup>#11</sup>", "7<sup>#11</sup>", "9<sup>#11</sup>", "7<sup>13</sup>", "9<sup>13</sup>", "7<sup>b9</sup>" "7<sup>b13</sup>", "7<sup>b9/b13</sup>", "11<sup>b9/b13</sup>", "7<sup>#9</sup>", "m7<sup>11</sup>", "m11", "x"];
+        var chord_str = ["", "m", "<sup>o</sup>", "<sup>sus4</sup>", "7<sup>sus4</sup>", "M<sup>7</sup>", "m<sup>M7</sup>", "m<sup>7</sup>", "7", "<sup>o7</sup>", "M7<sup>#5</sup>", "7<sup>#5</sup>", "<sup>#5</sup>", "m7<sup>b5</sup>", "7<sup>b5</sup>", "+<sup>9</sup>", "M<sup>9</sup>", "<sup>9</sup>", "m+<sup>9</sup>", "m9<sup>M7</sup>", "m<sup>9</sup>", "M7<sup>#11</sup>", "M9<sup>#11</sup>", "7<sup>#11</sup>", "9<sup>#11</sup>", "7<sup>13</sup>", "9<sup>13</sup>", "7<sup>b9</sup>", "7<sup>b13</sup>", "7<sup>b9/b13</sup>", "11<sup>b9/b13</sup>", "7<sup>#9</sup>", "m7<sup>11</sup>", "m11", "x"];
         /*var chord_type_reduced = [ [4],  //M
                                     [3],  //m
                                     [4,11],   //MM7
