@@ -193,7 +193,7 @@ MuseScore {
 			var inversions_11th = [" \u00B9\u00B9","","","","","","","","",""]; 
 			var inversions_13th = [" \u00B9\u00B3","","","","","","","","",""]; 
         }
-            
+               
         var rootNote = null,
             inversion = null,
             partial_chord=0;
@@ -245,7 +245,8 @@ MuseScore {
                             
                             //... and associated notation:
         //var chord_str = ["", "m", "\u00B0", "MM7", "m7", "Mm7", "\u00B07"];
-        var chord_str = ["", "m", "<sup>o</sup>", "<sup>sus4</sup>", "7<sup>sus4</sup>", "M<sup>7</sup>", "m<sup>M7</sup>", "m<sup>7</sup>", "7", "<sup>o7</sup>", "M7<sup>#5</sup>", "7<sup>#5</sup>", "<sup>#5</sup>", "m7<sup>b5</sup>", "7<sup>b5</sup>", "+<sup>9</sup>", "M<sup>9</sup>", "<sup>9</sup>", "m+<sup>9</sup>", "m9<sup>M7</sup>", "m<sup>9</sup>", "M7<sup>#11</sup>", "M9<sup>#11</sup>", "7<sup>#11</sup>", "9<sup>#11</sup>", "7<sup>13</sup>", "9<sup>13</sup>", "7<sup>b9</sup>", "7<sup>b13</sup>", "7<sup>b9/b13</sup>", "11<sup>b9/b13</sup>", "7<sup>#9</sup>", "m7<sup>11</sup>", "m11", "x"];
+        //var chord_str = ["", "m", "<sup>o</sup>", "<sup>sus4</sup>", "7<sup>sus4</sup>", "M<sup>7</sup>", "m<sup>M7</sup>", "m<sup>7</sup>", "7", "<sup>o7</sup>", "M7<sup>#5</sup>", "7<sup>#5</sup>", "<sup>#5</sup>", "m7<sup>b5</sup>", "7<sup>b5</sup>", "+<sup>9</sup>", "M<sup>9</sup>", "<sup>9</sup>", "m+<sup>9</sup>", "m9<sup>M7</sup>", "m<sup>9</sup>", "M7<sup>#11</sup>", "M9<sup>#11</sup>", "7<sup>#11</sup>", "9<sup>#11</sup>", "7<sup>13</sup>", "9<sup>13</sup>", "7<sup>b9</sup>", "7<sup>b13</sup>", "7<sup>b9/b13</sup>", "11<sup>b9/b13</sup>", "7<sup>#9</sup>", "m7<sup>11</sup>", "m11", "x"];
+        var chord_str = ["", "m", "o", "4", "7sus", "Maj7", "mMaj7", "m7", "7", "o7", "Maj7#5", "7#5", "#5", "m7b5", "Maj7b5", "add9", "Maj9", "9", "m add9", "m Maj9", "m9", "M7#11", "M9#11", "7#11", "9#11", "7 13", "9 13", "7b9", "7b13", "7b9b13", "11b9b13", "7#9", "m7 11", "m11", "x"];
         /*var chord_type_reduced = [ [4],  //M
                                     [3],  //m
                                     [4,11],   //MM7
@@ -470,7 +471,7 @@ MuseScore {
         var aCount = 0;
         var annotation = segment.annotations[aCount];
         while (annotation) {
-            if (annotation.type == Element.STAFF_TEXT)
+            if (annotation.name == "Harmony")
                 return annotation;
             annotation = segment.annotations[++aCount];     
         }
@@ -607,12 +608,12 @@ MuseScore {
                 if (chordName !== '') { //chord has been identified
                     var harmony = getSegmentHarmony(segment);
                     if (harmony) { //if chord symbol exists, replace it
-                        //console.log("got harmony " + staffText + " with root: " + harmony.rootTpc + " bass: " + harmony.baseTpc);
+                        //console.log("got harmony: " + harmony.type);
                         harmony.text = chordName;
                     }else{ //chord symbol does not exist, create it
-                        harmony = newElement(Element.STAFF_TEXT);
+                        harmony = newElement(Element.HARMONY);
                         harmony.text = chordName;
-                        //console.log("text type:  " + staffText.type);
+                        //console.log("text type:  " + harmony.type);
                         cursor.add(harmony);
                     }
                     
